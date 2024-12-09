@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path
 from .views import create_booking,Listing_booking,Update_booking,get_booking_detail,list_user_booking
 
+app_name = 'booking'
+
 urlpatterns = [
     path('bookinglist/',Listing_booking),
     path('create/', create_booking),

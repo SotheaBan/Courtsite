@@ -65,5 +65,3 @@ def list_user_booking(reqest):
     return Response(serializer.data)
  
     
-   
-  
