@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from django.contrib.auth.models import User
 from .serializer import CourtSerializer,DeleteSerializer
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -32,4 +33,18 @@ def delete_court(request,pk):
 
         queryset.delete()
         return Response({'msg': 'Person deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+
+
+
+
+
+#functions : 
+@login_required
+def courtListing(request): 
+        court = Court.objects.all()
+        return render(request,'court.html',{'court':court})
+
+def courtInfo(request,pk): 
+       court = Court.objects.get(pk=pk)
+       return render(request, 'courtinfo.html', {'court':court} )
 

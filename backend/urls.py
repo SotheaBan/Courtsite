@@ -22,5 +22,6 @@ urlpatterns = [
     path('bookapi/', include('booking.urls')),
     path('courtapi/',include('court.urls')),
     path('user/',include('UserCore.urls')),
+    path("__reload__/", include("django_browser_reload.urls")),
 
 ]

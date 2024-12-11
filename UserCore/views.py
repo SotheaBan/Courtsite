@@ -8,6 +8,8 @@ from .form import RegisterForm,loginForm
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 # Create your views here.
+
+
 @api_view(['POST'])
 def RegisterUser(request): 
     serializer = UserSerializer(data=request.data)
@@ -59,3 +61,5 @@ def login_view(request):
         form = loginForm()
 
     return render(request, 'login.html', {'form': form})
+
+

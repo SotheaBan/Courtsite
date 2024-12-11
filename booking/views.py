@@ -65,3 +65,11 @@ def list_user_booking(reqest):
     return Response(serializer.data)
  
     
+
+def BookList(request):
+    
+    if request.user.is_authenticated : 
+        booking = Booking.objects.filter(user=request.user)
+    else:
+        booking= ['Booking none']
+    return render(request, 'bookinglist.html', {'booking': booking })  

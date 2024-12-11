@@ -24,6 +24,6 @@ class Court(models.Model):
     availability = models.BooleanField()
     create_at = models.DateTimeField()
     updated_at = models.DateTimeField()
-
+ 
     def __str__(self) :
         return self.court_name
