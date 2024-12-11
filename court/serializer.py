@@ -9,7 +9,7 @@ class LocationSerializer(serializers.ModelSerializer):
 
 # Court Serializer
 class CourtSerializer(serializers.ModelSerializer): 
-    location = LocationSerializer()  
+    location = LocationSerializer
     class Meta:
         model = Court
         fields = '__all__'
@@ -19,3 +19,10 @@ class DeleteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Court
         fields = ['id']
+
+#Search serializer
+
+class SearchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Court
+        fields = '__all__'

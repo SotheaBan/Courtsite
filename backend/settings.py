@@ -40,7 +40,39 @@ INSTALLED_APPS = [
     'rest_framework',
     'booking',
     'court',
+    'UserCore',
+    'django_filters',
+    'rest_framework.authtoken', 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Default is to require authentication for all views
+    ],
+}
+# settings.py
+
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),  # Lifetime for access token
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),  # Lifetime for refresh token
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': False,
+    'ALGORITHM': 'HS256',  # JWT signing algorithm
+    'SIGNING_KEY': 'your-secret-key',  # Make sure to change this to a secret key
+    'VERIFYING_KEY': None,
+    'AUDIENCE': None,
+    'ISSUER': None,
+    'JWK_URL': None,
+    'LEEWAY': 0,
+    'AUTH_HEADER_TYPES': ('Bearer',),  # Authorization header should have Bearer type
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

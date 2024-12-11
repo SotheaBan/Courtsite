@@ -1,0 +1,20 @@
+# Python version requirement
+python==3.13
+
+# Django framework
+Django>=4.2,<5.0
+
+# Django REST Framework for building APIs
+djangorestframework>=3.12,<4.0
+
+# Django Filters for filtering querysets
+django-filter>=22.1,<23.0
+
+# Django REST Framework Auth Token for token-based authentication
+djangorestframework-authtoken>=3.0,<4.0
+
+# Additional dependencies you may need:
+# - Install any other third-party libraries here if necessary
+# For example:
+# gunicorn==20.1.0   # For production server
+# psycopg2==2.9.3    # For PostgreSQL database (if using PostgreSQL)
